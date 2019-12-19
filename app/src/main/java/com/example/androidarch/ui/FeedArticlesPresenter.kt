@@ -3,15 +3,16 @@ package com.example.androidarch.ui
 
 import com.example.androidarch.mapping.ViewModelMapper
 import com.example.domain.GetFeedArticlesUseCase
+import com.example.domain.contracts.usecases.UseCase
+import com.example.domain.entities.Article
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 class FeedArticlesPresenter(
-    private val getFeedArticlesUseCase: GetFeedArticlesUseCase
+    private val getFeedArticlesUseCase: UseCase<Int, List<Article>>
 ) {
 
-    private val feedViewModelMapper: ViewModelMapper =
-        ViewModelMapper()
+    private val feedViewModelMapper: ViewModelMapper = ViewModelMapper()
     private lateinit var view: View
 
     fun setView(view: View) {
